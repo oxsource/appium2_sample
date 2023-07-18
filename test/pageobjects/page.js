@@ -5,9 +5,14 @@
 export default class Page {
     /**
     * Opens a sub page of the page
-    * @param path path of the sub page (e.g. /path/to/page.html)
+    * @param path path of the page component(e.g. com.android.car/com.android.car.hvac.IndexActivity)
     */
     open (path) {
-        return browser.url(`https://the-internet.herokuapp.com/${path}`)
+        const values = path.split('/')
+        if (values.length != 2) throw Error(`bad actiivity component path: ${path}`)
+        const pkg = values[0]
+        const activity = values[1].startsWith('.') ? `${pkg}${values[1]}` : values[1]
+        console.log(`open activity ${path}`)
+        driver.startActivity(pkg, activity);
     }
 }

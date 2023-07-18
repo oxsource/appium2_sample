@@ -1,3 +1,5 @@
+import AppiumConf from './appium.conf.js'
+
 export const config = {
     //
     // ====================
@@ -5,7 +7,8 @@ export const config = {
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
-    port: 4723,
+    port: AppiumConf.port,
+
     //
     // ==================
     // Specify Test Files
@@ -51,14 +54,7 @@ export const config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        // capabilities for local Appium web tests on an Android Emulator
-        platformName: 'Android',
-        browserName: 'Chrome',
-        'appium:deviceName': 'Android GoogleAPI Emulator',
-        'appium:platformVersion': '12.0',
-        'appium:automationName': 'UiAutomator2'
-    }],
+    capabilities: [AppiumConf.capabilities],
 
     //
     // ===================
@@ -78,10 +74,10 @@ export const config = {
     // - @wdio/sumologic-reporter
     // - @wdio/cli, @wdio/config, @wdio/utils
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    // logLevels: {
-    //     webdriver: 'info',
-    //     '@wdio/appium-service': 'info'
-    // },
+    logLevels: {
+         webdriver: 'info',
+         '@wdio/appium-service': 'info'
+    },
     //
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
@@ -102,12 +98,19 @@ export const config = {
     //
     // Default request retries count
     connectionRetryCount: 3,
-    //
+
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['appium'],
+    //https://webdriver.io/docs/appium-service/
+    //https://appium.io/docs/en/2.0/cli/args/
+    //NOTES: replace use global appium (You can look source code)
+    services: [['appium', { 
+        command: AppiumConf.name,
+        args: AppiumConf.args,
+        logPath: './log/app.log'
+    }]],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -152,8 +155,8 @@ export const config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    //onPrepare: function (config, capabilities) {
+    //},
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
