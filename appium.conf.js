@@ -7,7 +7,7 @@ const config = {
         basePath: '/',
         callbackAddress: '127.0.0.1',
         debugLogSpacing: true,
-        keepAliveTimeout: 600,
+        keepAliveTimeout: 600000,
         localTimezone: true,
         log: './log/appium.log',
         logLevel: 'info',

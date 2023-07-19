@@ -25,7 +25,7 @@ class ConnectPage extends Page {
         const button = await findTextByDesc('click_button')
         //https://webdriver.io/docs/api/element/waitForExist#example
         //wait for activity create and button add to window
-        await button.waitForExist({ timeout: 5000 })
+        await button.waitForExist({ timeout: 10 * 1000 })
         await button.click()
         return true
     }

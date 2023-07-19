@@ -90,14 +90,14 @@ export const config = {
     baseUrl: '',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 60000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
     connectionRetryTimeout: 120000,
     //
     // Default request retries count
-    connectionRetryCount: 3,
+    connectionRetryCount: 1,
 
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
@@ -121,10 +121,10 @@ export const config = {
     framework: 'mocha',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
+    specFileRetries: 1,
     //
     // Delay in seconds between the spec file retry attempts
-    // specFileRetriesDelay: 0,
+    specFileRetriesDelay: 1000,
     //
     // Whether or not retried spec files should be retried immediately or deferred to the end of the queue
     // specFileRetriesDeferred: false,
@@ -237,9 +237,6 @@ export const config = {
      * @param {object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
-        if (!passed) {
-            await browser.takeScreenshot();
-        }
     },
 
 

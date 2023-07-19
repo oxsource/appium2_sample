@@ -12,7 +12,6 @@ export default class Page {
         if (values.length != 2) throw Error(`bad actiivity component path: ${path}`)
         const pkg = values[0]
         const activity = values[1].startsWith('.') ? `${pkg}${values[1]}` : values[1]
-        console.log(`open activity ${path}`)
-        driver.startActivity(pkg, activity);
+        driver.startActivity(pkg, activity)
     }
 }

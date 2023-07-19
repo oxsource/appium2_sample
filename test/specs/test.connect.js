@@ -8,6 +8,6 @@ describe('AppiumTest Page', () => {
     it('should open then auto finish', async () => {
         ConnectPage.open()
         await ConnectPage.finish()
-    }, 1)
+    })
 })
 
