@@ -23,5 +23,13 @@
 + appium 支持的命令： https://appium.github.io/appium.io/docs/en/commands/mobile-command/
 + uiautomator2 支持的命令： https://github.com/appium/appium-uiautomator2-driver#platform-specific-extensions
 
+## 编写测试用例
++ POM --页面元素对象管理
++ SPECS --测试用例
+
+## 报告输出
++ https://webdriver.io/docs/allure-reporter#displaying-the-report
++ allure generate .\allure-results && allure open
+
 ## 问题
 技术相关问题可联系QQ: 726676435

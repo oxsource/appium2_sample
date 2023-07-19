@@ -1,0 +1,4 @@
+{
+  "appPackage": "pizzk.android.appiumtest",
+  "appActivity": "pizzk.android.appiumtest.MainActivity"
+}

@@ -1,0 +1,6 @@
+{
+  "appPackage": "pizzk.android.appiumtest",
+  "appActivity": "pizzk.android.appiumtest.MainActivity",
+  "appWaitPackage": "pizzk.android.appiumtest",
+  "appWaitActivity": "pizzk.android.appiumtest.MainActivity"
+}

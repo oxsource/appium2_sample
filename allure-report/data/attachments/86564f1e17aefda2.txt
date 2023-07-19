@@ -1,0 +1,4 @@
+{
+  "appPackage": "com.skyworth.car.systemsettings",
+  "appActivity": "com.skyworth.car.systemsettings.common.SystemSettingsActivity"
+}

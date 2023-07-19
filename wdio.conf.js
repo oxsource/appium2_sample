@@ -74,10 +74,10 @@ export const config = {
     // - @wdio/sumologic-reporter
     // - @wdio/cli, @wdio/config, @wdio/utils
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevels: {
-         webdriver: 'info',
-         '@wdio/appium-service': 'info'
-    },
+    //logLevels: {
+    //     webdriver: 'info',
+    //     '@wdio/appium-service': 'info'
+    //},
     //
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
@@ -94,7 +94,7 @@ export const config = {
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
-    connectionRetryTimeout: 120000,
+    connectionRetryTimeout: 60000,
     //
     // Default request retries count
     connectionRetryCount: 1,
@@ -109,7 +109,6 @@ export const config = {
     services: [['appium', { 
         command: AppiumConf.name,
         args: AppiumConf.args,
-        logPath: './log/app.log'
     }]],
 
     // Framework you want to run your specs with.
